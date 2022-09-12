@@ -4,6 +4,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.3
+height = 2.0
 
 [node name="fps_controller" type="KinematicBody"]
 script = ExtResource( 1 )
@@ -13,7 +14,7 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0
 shape = SubResource( 1 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.796127, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.30045, 0 )
 
 [node name="RayCast" type="RayCast" parent="Camera"]
 cast_to = Vector3( 0, 0, -3 )

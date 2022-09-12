@@ -3,11 +3,11 @@ extends KinematicBody
 onready var camera = $Camera
 onready var ray = $Camera/RayCast
 
-export var walk_speed : int = 5
+export var walk_speed : int = 10
 export var accel : float = 0.2
 export var gravity : int = -1
 export var term_velocity : int = -35
-export var jump_strength : int = 10
+export var jump_strength : int = 20
 
 var velocity : Vector3
 
