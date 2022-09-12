@@ -7,8 +7,17 @@ export var walk_speed : int = 5
 export var accel : float = 0.2
 export var gravity : int = -1
 export var term_velocity : int = -35
+export var jump_strength : int = 10
 
 var velocity : Vector3
+
+var state = WALKING
+
+enum {
+	WALKING,
+	SPRINTING,
+}
+
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -18,6 +27,7 @@ func _process(_delta):
 	
 func _physics_process(_delta):
 	handle_movement()
+	handle_jumping()
 	
 func get_input():
 	var dir : Vector3 = Vector3.ZERO
@@ -55,4 +65,6 @@ func _input(event):
 		camera.rotate_x(-event.relative.y * Settings.mouse_sens)
 		camera.rotation.x = clamp(camera.rotation.x, -1.2, 1.2)
 
-
+func handle_jumping():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
+		velocity.y = jump_strength
